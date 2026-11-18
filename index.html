@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barber Shop Ska | Neiva, Huila</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Oswald:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skaDark: '#0E0E0E',
+                        skaCard: '#161513',
+                        skaPaper: '#F3EFE6',
+                        skaGold: '#C89D54',
+                        skaGoldHover: '#B2873F',
+                        skaGreen: '#174A3E',
+                        skaRed: '#8E2822'
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        lora: ['Lora', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #0E0E0E; color: #F3EFE6; font-family: 'Plus Jakarta Sans', sans-serif; }
+        .slot-btn.active { background-color: #C89D54; color: #0E0E0E; border-color: #C89D54; font-weight: 600; }
+        .date-card.active { border-color: #C89D54; background-color: rgba(200, 157, 84, 0.08); }
+    </style>
+</head>
+<body class="selection:bg-skaGold selection:text-skaDark">
+
+    <!-- BARRA SUPERIOR DE NAVEGACIÓN -->
+    <header class="sticky top-0 z-50 bg-skaDark/90 backdrop-blur-md border-b border-skaGold/20 px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+            <span class="w-3 h-3 rounded-full bg-skaGreen inline-block animate-pulse"></span>
+            <span class="font-oswald uppercase tracking-widest text-lg text-skaPaper">Barber Shop Ska</span>
+        </div>
+        <nav class="hidden md:flex space-x-8 text-sm uppercase tracking-wider text-skaPaper/80">
+            <a href="#servicios" class="hover:text-skaGold transition-colors">Servicios</a>
+            <a href="#barbero" class="hover:text-skaGold transition-colors">El Maestro</a>
+            <a href="#agenda" class="hover:text-skaGold transition-colors">Reservar</a>
+        </nav>
+        <a href="#agenda" class="bg-skaGold text-skaDark font-oswald uppercase tracking-wider px-5 py-2 text-sm rounded-sm hover:bg-skaGoldHover transition-all">
+            Agendar Turno
+        </a>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section class="relative min-h-[90vh] flex items-center justify-center px-6 py-20 overflow-hidden border-b border-skaGold/10">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&q=80&w=1920" alt="Barber Shop Background" class="w-full h-full object-cover opacity-30 scale-105">
+            <div class="absolute inset-0 bg-gradient-to-t from-skaDark via-skaDark/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl text-center space-y-6">
+            <div class="inline-flex items-center space-x-2 border border-skaGold/30 px-4 py-1.5 rounded-full text-xs font-oswald uppercase tracking-widest text-skaGold bg-skaGold/10 backdrop-blur-sm">
+                <span>Neiva, Huila · Carrera 1</span>
+            </div>
+            <h1 class="font-oswald uppercase text-5xl md:text-7xl lg:text-8xl tracking-tight text-skaPaper leading-none">
+                Estilo & Precisión <br><span class="text-skaGold">Sin Rodeos</span>
+            </h1>
+            <p class="font-lora italic text-lg md:text-xl text-skaPaper/80 max-w-2xl mx-auto">
+                El espacio de autor donde la tradición clásica de la barbería se encuentra con el detalle moderno. Un sillón, dedicación absoluta.
+            </p>
+            <div class="pt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#agenda" class="w-full sm:w-auto bg-skaGold text-skaDark font-oswald uppercase tracking-wider px-8 py-4 rounded-sm hover:bg-skaGoldHover transition-all text-center shadow-lg">
+                    Agendar Cita en Línea
+                </a>
+                <a href="#servicios" class="w-full sm:w-auto border border-skaPaper/30 text-skaPaper font-oswald uppercase tracking-wider px-8 py-4 rounded-sm hover:border-skaGold hover:text-skaGold transition-all text-center backdrop-blur-sm">
+                    Ver Carta y Precios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARTA DE SERVICIOS -->
+    <section id="servicios" class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="text-center space-y-3 mb-16">
+            <span class="text-xs font-oswald uppercase tracking-widest text-skaGold">Nuestra Carta</span>
+            <h2 class="font-oswald uppercase text-4xl md:text-5xl text-skaPaper">Servicios & Tarifas</h2>
+            <p class="font-lora text-skaPaper/60 italic text-sm">Haz clic en cualquier servicio para seleccionarlo automáticamente en la agenda.</p>
+        </div>
+
+        <div class="space-y-6 bg-skaCard p-8 md:p-12 border border-skaGold/20 rounded-sm shadow-2xl">
+            <!-- Servicio 1 -->
+            <div class="group cursor-pointer pb-6 border-b border-skaPaper/10 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-all hover:pl-2" onclick="seleccionarServicio('Corte Clásico o Degradado / Fade', 20000)">
+                <div>
+                    <h3 class="font-oswald uppercase text-xl text-skaPaper group-hover:text-skaGold transition-colors">Corte Clásico o Degradado (Fade)</h3>
+                    <p class="text-xs font-lora text-skaPaper/60">Incluye lavado express, diseño de contornos y acabado con navaja.</p>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-6">
+                    <span class="text-xs font-oswald tracking-wider text-skaPaper/50">45 MIN</span>
+                    <span class="font-oswald text-2xl text-skaGold">$20.000</span>
+                </div>
+            </div>
+
+            <!-- Servicio 2 -->
+            <div class="group cursor-pointer pb-6 border-b border-skaPaper/10 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-all hover:pl-2" onclick="seleccionarServicio('Combo Corte + Barba Completa', 30000)">
+                <div>
+                    <h3 class="font-oswald uppercase text-xl text-skaPaper group-hover:text-skaGold transition-colors">Combo Corte + Barba</h3>
+                    <p class="text-xs font-lora text-skaPaper/60">El ritual completo: tu corte de preferencia + arreglo de barba con toalla caliente.</p>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-6">
+                    <span class="text-xs font-oswald tracking-wider text-skaPaper/50">60 MIN</span>
+                    <span class="font-oswald text-2xl text-skaGold">$30.000</span>
+                </div>
+            </div>
+
+            <!-- Servicio 3 -->
+            <div class="group cursor-pointer pb-6 border-b border-skaPaper/10 flex flex-col md:flex-row md:items-center justify-between gap-2 transition-all hover:pl-2" onclick="seleccionarServicio('Ritual de Barba y Navaja', 12000)">
+                <div>
+                    <h3 class="font-oswald uppercase text-xl text-skaPaper group-hover:text-skaGold transition-colors">Ritual de Barba & Navaja</h3>
+                    <p class="text-xs font-lora text-skaPaper/60">Perfilado con vapor, toalla caliente y bálsamo hidratante.</p>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-6">
+                    <span class="text-xs font-oswald tracking-wider text-skaPaper/50">30 MIN</span>
+                    <span class="font-oswald text-2xl text-skaGold">$12.000</span>
+                </div>
+            </div>
+
+            <!-- Servicio 4 -->
+            <div class="group cursor-pointer flex flex-col md:flex-row md:items-center justify-between gap-2 transition-all hover:pl-2" onclick="seleccionarServicio('Perfilado de Cejas', 6000)">
+                <div>
+                    <h3 class="font-oswald uppercase text-xl text-skaPaper group-hover:text-skaGold transition-colors">Perfilado de Cejas</h3>
+                    <p class="text-xs font-lora text-skaPaper/60">Diseño y limpieza con navaja o cera.</p>
+                </div>
+                <div class="flex items-center justify-between md:justify-end gap-6">
+                    <span class="text-xs font-oswald tracking-wider text-skaPaper/50">15 MIN</span>
+                    <span class="font-oswald text-2xl text-skaGold">$6.000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN EL MAESTRO -->
+    <section id="barbero" class="py-24 px-6 bg-[#121110] border-t border-b border-skaGold/10">
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-oswald uppercase tracking-widest text-skaGold">El Profesional</span>
+                <h2 class="font-oswald uppercase text-4xl text-skaPaper">Daniel Medina</h2>
+                <p class="font-lora text-skaPaper/70 leading-relaxed">
+                    Al frente de <strong>Barber Shop Ska</strong> (@danielskamedina), cada corte es tratado como una pieza de precisión. Enfocado en la atención personalizada de un solo sillón, garantizando dedicación total a tu imagen sin afanes.
+                </p>
+                <div class="grid grid-cols-2 gap-4 pt-4 border-t border-skaPaper/10 font-oswald text-sm">
+                    <div>
+                        <span class="text-skaGold block text-lg">100%</span>
+                        <span class="text-skaPaper/60 uppercase">Enfoque Personal</span>
+                    </div>
+                    <div>
+                        <span class="text-skaGold block text-lg">Neiva</span>
+                        <span class="text-skaPaper/60 uppercase">Ubicación Céntrica</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-96 bg-skaCard border border-skaGold/20 overflow-hidden rounded-sm shadow-xl">
+                <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&q=80&w=800" alt="Daniel Medina Barbero" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-skaDark via-transparent to-transparent opacity-60"></div>
+                <div class="absolute bottom-6 left-6 z-10">
+                    <span class="font-oswald uppercase tracking-widest text-skaGold text-xs">Estudio Privado</span>
+                    <h3 class="font-oswald uppercase text-xl text-skaPaper">Sillón Exclusivo de Autor</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN AGENDA MODERNA -->
+    <section id="agenda" class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center space-y-3 mb-12">
+            <span class="text-xs font-oswald uppercase tracking-widest text-skaGold">Sistema de Reservas</span>
+            <h2 class="font-oswald uppercase text-4xl text-skaPaper">Agenda Tu Espacio</h2>
+            <p class="font-lora text-skaPaper/60 italic text-sm">Selecciona tu fecha, hora y confirma directo al WhatsApp de Daniel.</p>
+        </div>
+
+        <div class="bg-skaCard p-6 md:p-10 border border-skaGold/20 rounded-sm space-y-8 shadow-2xl">
+            <!-- 1. Nombre del Cliente -->
+            <div class="space-y-2">
+                <label class="block font-oswald uppercase text-xs tracking-wider text-skaPaper/80">1. Tu Nombre Completo</label>
+                <input type="text" id="inputNombre" placeholder="Ej. Carlos Andrés" class="w-full bg-skaDark border border-skaPaper/20 px-4 py-3 text-skaPaper focus:border-skaGold outline-none rounded-sm font-sans text-sm">
+            </div>
+
+            <!-- 2. Servicio Activo -->
+            <div class="space-y-2">
+                <label class="block font-oswald uppercase text-xs tracking-wider text-skaPaper/80">2. Servicio Elegido (Haz clic arriba para cambiar)</label>
+                <input type="text" id="inputServicio" value="Corte Clásico o Degradado / Fade ($20.000 COP)" readonly class="w-full bg-skaDark border border-skaGold/20 px-4 py-3 text-skaGold font-oswald text-sm outline-none rounded-sm cursor-not-allowed">
+            </div>
+
+            <!-- 3. Selector de Día Moderno (Tarjetas) -->
+            <div class="space-y-3">
+                <label class="block font-oswald uppercase text-xs tracking-wider text-skaPaper/80">3. Selecciona el Día</label>
+                <div class="grid grid-cols-3 gap-3" id="gridDias">
+                    <button type="button" onclick="seleccionarDia(this, 'Hoy')" class="date-card active p-3 bg-skaDark border border-skaPaper/20 rounded-sm text-center transition-all">
+                        <span class="block font-oswald uppercase text-xs text-skaGold">Hoy</span>
+                        <span class="block font-sans text-sm text-skaPaper font-semibold" id="labelHoy">--</span>
+                    </button>
+                    <button type="button" onclick="seleccionarDia(this, 'Mañana')" class="date-card p-3 bg-skaDark border border-skaPaper/20 rounded-sm text-center transition-all">
+                        <span class="block font-oswald uppercase text-xs text-skaGold">Mañana</span>
+                        <span class="block font-sans text-sm text-skaPaper font-semibold" id="labelManana">--</span>
+                    </button>
+                    <button type="button" onclick="seleccionarDia(this, 'Próximo Sábado')" class="date-card p-3 bg-skaDark border border-skaPaper/20 rounded-sm text-center transition-all">
+                        <span class="block font-oswald uppercase text-xs text-skaGold">Sábado</span>
+                        <span class="block font-sans text-sm text-skaPaper font-semibold" id="labelSabado">--</span>
+                    </button>
+                </div>
+                <input type="hidden" id="inputDia" value="Hoy">
+            </div>
+
+            <!-- 4. Selector de Horarios Moderno (Cuadrícula) -->
+            <div class="space-y-3">
+                <label class="block font-oswald uppercase text-xs tracking-wider text-skaPaper/80">4. Horarios Disponibles en el Sillón</label>
+                <div class="grid grid-cols-3 sm:grid-cols-4 gap-2">
+                    <button type="button" onclick="seleccionarHora(this, '10:00 AM')" class="slot-btn active p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">10:00 AM</button>
+                    <button type="button" onclick="seleccionarHora(this, '11:00 AM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">11:00 AM</button>
+                    <button type="button" onclick="seleccionarHora(this, '12:00 PM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">12:00 PM</button>
+                    <button type="button" onclick="seleccionarHora(this, '02:00 PM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">02:00 PM</button>
+                    <button type="button" onclick="seleccionarHora(this, '03:30 PM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">03:30 PM</button>
+                    <button type="button" onclick="seleccionarHora(this, '05:00 PM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">05:00 PM</button>
+                    <button type="button" onclick="seleccionarHora(this, '06:30 PM')" class="slot-btn p-2.5 bg-skaDark border border-skaPaper/20 rounded-sm font-oswald text-xs tracking-wider text-skaPaper hover:border-skaGold transition-all">06:30 PM</button>
+                </div>
+                <input type="hidden" id="inputHora" value="10:00 AM">
+            </div>
+
+            <!-- Botón de Envío -->
+            <button onclick="enviarWhatsApp()" class="w-full bg-skaGold text-skaDark font-oswald uppercase tracking-widest py-4 rounded-sm hover:bg-skaGoldHover transition-all font-semibold flex items-center justify-center space-x-2 shadow-lg">
+                <span>Confirmar y Enviar al WhatsApp de Daniel</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="border-t border-skaGold/20 bg-skaDark py-12 px-6 text-center text-xs font-lora text-skaPaper/50 space-y-3">
+        <p class="font-oswald uppercase tracking-widest text-skaPaper text-sm">Barber Shop Ska · Neiva, Huila</p>
+        <p>© 2026 Daniel Medina (@danielskamedina). Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- SCRIPT DE INTERACCIÓN Y AGENDA MODERNA -->
+    <script>
+        // Generar etiquetas de fechas dinámicas en español
+        window.addEventListener('DOMContentLoaded', () => {
+            const meses = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'];
+            const hoy = new Date();
+            
+            const manana = new Date(hoy);
+            manana.setDate(hoy.getDate() + 1);
+
+            const sabado = new Date(hoy);
+            sabado.setDate(hoy.getDate() + ((6 - hoy.getDay() + 7) % 7));
+
+            document.getElementById('labelHoy').innerText = `${hoy.getDate()} ${meses[hoy.getMonth()]}`;
+            document.getElementById('labelManana').innerText = `${manana.getDate()} ${meses[manana.getMonth()]}`;
+            document.getElementById('labelSabado').innerText = `${sabado.getDate()} ${meses[sabado.getMonth()]}`;
+        });
+
+        function seleccionarServicio(nombre, precio) {
+            document.getElementById('inputServicio').value = nombre + ' ($' + precio.toLocaleString() + ' COP)';
+            
+            const input = document.getElementById('inputServicio');
+            input.classList.add('border-skaGold');
+            setTimeout(() => input.classList.remove('border-skaGold'), 500);
+
+            document.getElementById('agenda').scrollIntoView({ behavior: 'smooth' });
+            document.getElementById('inputNombre').focus();
+        }
+
+        function seleccionarDia(elemento, diaTexto) {
+            document.querySelectorAll('.date-card').forEach(el => el.classList.remove('active'));
+            elemento.classList.add('active');
+            document.getElementById('inputDia').value = diaTexto;
+        }
+
+        function seleccionarHora(elemento, horaTexto) {
+            document.querySelectorAll('.slot-btn').forEach(el => el.classList.remove('active'));
+            elemento.classList.add('active');
+            document.getElementById('inputHora').value = horaTexto;
+        }
+
+        function enviarWhatsApp() {
+            const nombre = document.getElementById('inputNombre').value.trim();
+            const servicio = document.getElementById('inputServicio').value;
+            const dia = document.getElementById('inputDia').value;
+            const hora = document.getElementById('inputHora').value;
+
+            if (!nombre) {
+                alert('Por favor ingresa tu nombre completo para agendar la cita.');
+                document.getElementById('inputNombre').focus();
+                return;
+            }
+
+            const telefonoDaniel = '573112378943';
+            const mensaje = `Hola Daniel, mi nombre es *${nombre}*. Quisiera agendar un turno en *Barber Shop Ska*:\n\n*Servicio:* ${servicio}\n*Día:* ${dia}\n*Hora:* ${hora}\n\nQuedo atento a la confirmación. ¡Gracias!`;
+            
+            const url = `https://wa.me/${telefonoDaniel}?text=` + encodeURIComponent(mensaje);
+            window.open(url, '_blank');
+        }
+    </script>
+</body>
+</html>
